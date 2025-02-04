@@ -14,15 +14,19 @@ searchBtn.addEventListener("click", () => {
   fetch(apiURL)
     .then((Response) => Response.json())
     .then((data) => {
-      // console.log(data);
+      console.log(data);
       console.log(data[0]);
       console.log(data[0].capital[0]);
       console.log(data[0].flags.svg);
       console.log(data[0].continents[0]);
       console.log(data[0].name.common);
-      console.log(data[0].name.nativeName.eng.official);
-      console.log(data[0].currencies);
-      console.log(data[0].population);
+    //   console.log(data[0].name);
+      console.log(Object.keys(data[0].currencies)[0]);
+      console.log(data[0].currencies[Object.keys(data[0].currencies)].name);
+      
+    //   console.log(data[0].population);
+    console.log(data[0].continents[0]);
+    
       console.log(data[0].borders);
       console.log(
         Object.values(data[0].languages).toString().split(",").join(",")
@@ -34,62 +38,57 @@ searchBtn.addEventListener("click", () => {
             
             <h2>${data[0].name.common}</h2>
             <div class = "wrapper">
-                <div class = "data-wrapper>
-                <h4>"</h4>Capital : 
+                <div class = "data-wrapper">
+                <h4>Capital :</h4>  
                 <span>${data[0].capital[0]}</span>
                 </div>
             </div>
 
             <div class = "wrapper">
-                <div class = "data-wrapper>
-                 <h4>"</h4>Continent : 
+                <div class = "data-wrapper">
+                 <h4>Continent :</h4>  
                 <span>${data[0].continents[0]}</span>
                 </div>
             </div>
 
             <div class = "wrapper">
-                <div class = "data-wrapper>
-             <h4>"</h4>Official Name : 
-                <span>${data[0].name.nativeName.eng.official}</span>
+                <div class = "data-wrapper">
+             <h4>Official Name :</h4>  
+                <span>${data[0].name.common}</span>
                 </div>
             </div>
 
             <div class = "wrapper">
-                <div class = "data-wrapper>
-             <h4>"</h4>Currecy : 
-                <span>${data[0].currencies}</span>
+                <div class = "data-wrapper">
+             <h4>Currency</h4> : 
+                <span>${Object.keys(data[0].currencies)[0]}</span>
                 </div>
             </div>
 
-            <div class = "wrapper">
-                <div class = "data-wrapper>
-             <h4></h4>Currecy : 
-                <span>${Object.values(data[0].languages)
-                  .toString()
-                  .split(",")
-                  .join(",")}</span>
-                
-                </div>
-            </div>
+          
 
              <div class = "wrapper">
-                <div class = "data-wrapper>
-             <h4>"</h4>Population : 
+                <div class = "data-wrapper">
+             <h4>>Population</h4> : 
                 <span>${data[0].population}</span>
                 </div>
             </div>
 
              <div class = "wrapper">
-                <div class = "data-wrapper>
-             <h4>"</h4>Borders shared with : 
+                <div class = "data-wrapper">
+             <h4>Borders shared with</h4> : 
                 <span>${data[0].borders}</span>
                 </div>
             </div>
 
             <div class = "wrapper">
-                <div class = "data-wrapper>
-             <h4>"</h4>Common Languages : 
-                <span>${data[0].name.common}</span>
+                <div class = "data-wrapper">
+             <h4>Common Language</h4> : 
+                <span>${Object.values(data[0].languages)
+                  .toString()
+                  .split(",")
+                  .join(",")}</span>
+                
                 </div>
             </div>
 
